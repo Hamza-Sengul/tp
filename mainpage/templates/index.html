@@ -109,8 +109,8 @@ function closePopup() {
     </div>
     <div class="anc">
       <h2 style="margin-top: -10px;">DUYURULAR</h2>
+      {% for announcement in announcements %}
       <div class="anc2" style="height: 90px;">
-        {% for announcement in announcements %}
         <div class="anc-item">
           <div class="ancbaslik">
             <h4>{{ announcement.name }}</h4>
@@ -118,15 +118,15 @@ function closePopup() {
           <div class="ancdetay">
             <p>{{ announcement.details|truncatechars:45 }}
               {% if announcement.details|length > 45 %}
-            <a href="#" class="read-more-announcement" data-id="{{ announcement.id }}" style="color: black;">Detaylar</a>
-            {% endif %}
+              <a href="#" class="read-more-announcement" data-id="{{ announcement.id }}" style="color: black;">Detaylar</a>
+              {% endif %}
             </p>
           </div>
         </div>
-        {% empty %}
-        <p>Henüz duyuru eklenmemiş.</p>
-        {% endfor %}
       </div>
+      {% empty %}
+      <p>Henüz duyuru eklenmemiş.</p>
+      {% endfor %}
     </div>
   </div>
 </section>
