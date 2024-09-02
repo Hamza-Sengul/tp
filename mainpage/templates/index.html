@@ -560,7 +560,7 @@ function closePopup() {
   }
 
   @media (max-width: 600px) {
-    .modal-content {
+    .modal-content2 {
       padding: 15px;
       font-size: 14px;
     }
@@ -607,21 +607,64 @@ function closePopup() {
 
 <!-- slice kartlık -->
 
-<div class="container">
-  <div class="hakkimizda" style="margin-top: 15px;">
-    <h2 class="hakkımızda">HAKKIMIZDA</h2>
-    <p class="div-h2-p">{{ site_content.about_us }}</p>
+<div class="container2">
+  <div class="hakkimizda2">
+    <h2 class="hakkımızda2">HAKKIMIZDA</h2>
+    <p class="div-h2-p2">{{ site_content.about_us }}</p>
   </div>
 
-  <div class="vizyonumuz" style="margin-top: 15px; margin-bottom: 30px;">
-    <h2 class="hakkımızda">VİZYONUMUZ</h2>
-    <p class="div-h2-p">{{ site_content.vision }}</p>
+  <div class="vizyonumuz2">
+    <h2 class="hakkımızda2">VİZYONUMUZ</h2>
+    <p class="div-h2-p2">{{ site_content.vision }}</p>
   </div>
 </div>
+
+<style>
+  .container2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .hakkimizda2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 50px 0 50px;
+  }
+  .hakkimizda2 p {
+    text-align: justify;
+  }
+  .hakkimizda2 h2 {
+    border-bottom: 4px solid #37B7C3;
+    display: inline-block;
+  }
+  .vizyonumuz2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 50px 0 50px;
+  }
+  .vizyonumuz2 p {
+    text-align: justify;
+  }
+  .vizyonumuz2 h2 {
+    border-bottom: 4px solid #37B7C3;
+    display: inline-block;
+  }
+  @media (max-width: 600px) {
+    .container2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  }
+</style>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const aboutSection = document.querySelector('.hakkimizda');
-    const visionSection = document.querySelector('.vizyonumuz');
+    const aboutSection = document.querySelector('.hakkimizda2');
+    const visionSection = document.querySelector('.vizyonumuz2');
 
     function checkPosition() {
         const aboutPosition = aboutSection.getBoundingClientRect().top;
