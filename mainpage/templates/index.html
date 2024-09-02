@@ -1,6 +1,63 @@
 {% extends "layout.html" %} {% load static %} {% block content %}
 
 
+<div id="overlay" style="display: none; position: fixed; left: 0; top: 0; width: 100%; height: 200%; background: rgba(0, 0, 0, 0.5); z-index: 999;"></div>
+
+<div id="survey-popup" style="display: none; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); z-index: 1001; max-width: 90%; width: 400px;">
+  <h2>Website Anketimiz</h2>
+  <iframe src="https://forms.gle/52WBr19XP9gbxjN5A" style="width:100%; height: 500px;"></iframe>
+  <button onclick="closePopup()" style="margin-top: 10px; padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer;">Kapat</button>
+</div>
+
+<div id="toggle-popup" style="z-index: 1000; position: fixed; left: 0; top: 50%; transform: translateY(-50%); background: rgba(255, 255, 255, 0); padding: 10px; cursor: pointer;">
+  <i style="font-size: 20px;" class="fa-solid fa-angles-right"></i>
+</div>
+
+<script>
+ document.addEventListener("DOMContentLoaded", function() {
+   
+    if (!localStorage.getItem('popupShown')) {
+        showPopup();
+        localStorage.setItem('popupShown', 'true');
+    }
+    
+    
+    document.getElementById("toggle-popup").addEventListener("click", function() {
+        showPopup();
+    });
+});
+
+function showPopup() {
+    document.getElementById("survey-popup").style.display = 'block';
+    document.getElementById("overlay").style.display = 'block';
+}
+
+function closePopup() {
+    document.getElementById("survey-popup").style.display = 'none';
+    document.getElementById("overlay").style.display = 'none';
+}
+
+</script>
+<style>
+  @media (max-width: 768px) {
+    #survey-popup {
+        width: 90%;
+        height: auto;
+    }
+
+    #survey-popup iframe {
+        height: 200px;
+    }
+
+    #toggle-popup {
+        left: 10px;
+        top: 90%;
+        transform: translateY(-50%);
+        padding: 5px;
+    }
+}
+
+</style>
 
 <div class="slider">
   <div class="slides">
