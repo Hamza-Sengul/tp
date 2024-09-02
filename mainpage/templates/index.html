@@ -1,6 +1,7 @@
 {% extends "layout.html" %} {% load static %} {% block content %}
 
 
+
 <div id="overlay" style="display: none; position: fixed; left: 0; top: 0; width: 100%; height: 200%; background: rgba(0, 0, 0, 0.5); z-index: 999;"></div>
 
 <div id="survey-popup" style="display: none; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); z-index: 1001; max-width: 90%; width: 400px;">
@@ -83,8 +84,8 @@ function closePopup() {
   <div class="eventcont">
     <div class="event">
       <h2>ETKİNLİKLERİMİZ</h2>
+      {% for event in events %}
       <div class="event2">
-        {% for event in events %}
         <div class="event-item">
           <div class="eventbaslik">
             <h4>{{ event.name }}</h4>
@@ -92,8 +93,8 @@ function closePopup() {
           <div class="eventdetay" style="margin-top: 10px;">
             <p>{{ event.details|truncatechars:30 }}
               {% if event.details|length > 30 %}
-            <a href="#" class="read-more-event" data-id="{{ event.id }}" style="color: white;">Detaylar</a>
-            {% endif %}
+              <a href="#" class="read-more-event" data-id="{{ event.id }}" style="color: white;">Detaylar</a>
+              {% endif %}
             </p>
           </div>
           <div class="etkinliktarih">
@@ -101,10 +102,10 @@ function closePopup() {
             <div class="saat">{{ event.date|date:"H:i" }}</div>
           </div>
         </div>
-        {% empty %}
-        <p>Henüz etkinlik eklenmemiş.</p>
-        {% endfor %}
       </div>
+      {% empty %}
+      <p>Henüz etkinlik eklenmemiş.</p>
+      {% endfor %}
     </div>
     <div class="anc">
       <h2 style="margin-top: -10px;">DUYURULAR</h2>
