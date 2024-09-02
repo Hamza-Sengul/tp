@@ -92,9 +92,9 @@ function closePopup() {
           </div>
           <div class="eventdetay" style="margin-top: 10px;">
             <p>{{ event.details|truncatechars:30 }}
-              {% if event.details|length > 30 %}
+              
               <a href="#" class="read-more-event" data-id="{{ event.id }}" style="color: white;">Detaylar</a>
-              {% endif %}
+             
             </p>
           </div>
           <div class="etkinliktarih">
@@ -117,9 +117,9 @@ function closePopup() {
           </div>
           <div class="ancdetay">
             <p>{{ announcement.details|truncatechars:45 }}
-              {% if announcement.details|length > 45 %}
+              
               <a href="#" class="read-more-announcement" data-id="{{ announcement.id }}" style="color: black;">Detaylar</a>
-              {% endif %}
+              
             </p>
           </div>
         </div>
